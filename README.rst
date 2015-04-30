@@ -40,14 +40,14 @@ deploy-verify uses the AWS boto library which requires that a config file:
 ".boto" be in your home dir for authentication.  
 Be sure to secure your config file:
 
- ::
+.. code:: bash
 
  $ chmod 400 .boto 
 
 
 **Example .boto file**
 
- ::
+.. code:: bash
 
  [Credentials]
  aws_access_key_id = ABCDEFGHIJKLMNOP
