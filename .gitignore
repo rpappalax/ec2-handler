@@ -1,0 +1,17 @@
+.DS_Store
+/.idea
+*.sw[nop]
+.Python
+env/
+build/
+dist/
+sdist/
+.installed.cfg
+*.egg
+*.py[cod]
+*.egg-info
+*.stamp
+.venv/
+.coverage
+.tox/
+docs/_build/
