@@ -5,8 +5,9 @@ Description
 -----------
 
 Python Boto scripts for handling Amazon EC2 instances 
+For now this is a one-trick-pony as all it does is return
+the latest instance when given an instance Name as string and a region
 
-Note: still under development. 
 
 |travis| |pypi|
 
@@ -61,16 +62,31 @@ Run
 
 .. code:: bash
 
-    (venv)$ verify
-    Usage: verify [args..] [options]
+    (venv)$ ec2
+    Usage: ec2 [args..] [options]
 
-    <TBD>
 
 
 Example
 -----
 
-.. code:: bash
+.. code:: bashl
 
-    <TBD>
+optional arguments:
+  -h, --help            show this help message and exit
+  -a ACCESS_KEY, --access-key ACCESS_KEY
+                        Access Key
+  -s SECRET_KEY, --secret-key SECRET_KEY
+                        Secret Key
+  -r REGION, --region REGION
+  -p PRODUCT_NAME, --product-name PRODUCT_NAME
+                        Product Name (i.e. loop_client)
+
+
+Import
+-----
+
+from ec2-handler import EC2Handler
+
+<TBD>
 

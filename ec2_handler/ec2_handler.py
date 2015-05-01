@@ -3,6 +3,10 @@
 import argparse
 import boto.ec2
 
+REGIONS = [
+    'us-east-1', 'us-west-1', 'us-west-2', 'eu-west-1', 'sa-east-1',
+    'ap-southeast-1', 'ap-southeast-2', 'ap-northeast-1'
+]
 
 class EC2Handler(object):
 
@@ -10,9 +14,9 @@ class EC2Handler(object):
 
         pass
 
-    def ec2_instance(self, region, filters, kwargs):
+    def instance_newest(self, region, filters, kwargs):
         
-        latest_instance = ''
+        instance_newest = ''
         launch_time_prev = '2000-01-01'
 
         if(kwargs):
@@ -34,17 +38,16 @@ class EC2Handler(object):
                     instance.launch_time
                 ) 
                 if instance.launch_time > launch_time_prev:
-                    latest_instance = current_instance
+                    instance_newest = current_instance
                 launch_time_prev = instance.launch_time
         
-        return latest_instance
+        return instance_newest
 
 
 def main():
 
+    regions = REGIONS
     ec2 = EC2Handler()
-    regions = ['us-east-1', 'us-west-1', 'us-west-2', 'eu-west-1', 'sa-east-1',
-               'ap-southeast-1', 'ap-southeast-2', 'ap-northeast-1']
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--access-key', help='Access Key')
     parser.add_argument('-s', '--secret-key', help='Secret Key')
@@ -68,7 +71,7 @@ def main():
     }
 
     for region in regions:
-        print ec2.ec2_instance(region, filters, kwargs)
+        print ec2.instance_newest(region, filters, kwargs)
 
 if __name__ == '__main__':
 
