@@ -11,6 +11,9 @@ class EC2Handler(object):
         pass
 
     def ec2_instance(self, region, filters, kwargs):
+        
+        latest_instance = ''
+        launch_time_prev = '2000-01-01'
 
         if(kwargs):
             ec2_conn = boto.ec2.connect_to_region(
@@ -24,7 +27,17 @@ class EC2Handler(object):
         reservations = ec2_conn.get_all_instances(filters=filters)
         for reservation in reservations:
             for instance in reservation.instances:
-                print('{}: {}'.format(region, instance.id)) 
+                current_instance = '{}: {} - {}'.format(
+                    region, 
+                    instance.id,
+                    instance.tags['Name'],
+                    instance.launch_time
+                ) 
+                if instance.launch_time > launch_time_prev:
+                    latest_instance = current_instance
+                launch_time_prev = instance.launch_time
+        
+        return latest_instance
 
 
 def main():
@@ -55,7 +68,7 @@ def main():
     }
 
     for region in regions:
-        ec2.ec2_instance(region, filters, kwargs)
+        print ec2.ec2_instance(region, filters, kwargs)
 
 if __name__ == '__main__':
 
