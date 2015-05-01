@@ -26,6 +26,6 @@ run:
 	$(BINDIR)/demo
 
 clean:
-	rm -rf build *egg* dist ./docs/_build .tox
+	rm -rf venv *egg* .tox
 	find . -name '*.pyc' -exec rm -f {} +
 

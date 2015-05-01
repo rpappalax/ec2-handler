@@ -3,7 +3,6 @@
 *.sw[nop]
 .Python
 env/
-build/
 dist/
 sdist/
 .installed.cfg
@@ -11,6 +10,6 @@ sdist/
 *.py[cod]
 *.egg-info
 *.stamp
-.venv/
+venv/
 .coverage
 .tox/

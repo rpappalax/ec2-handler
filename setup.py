@@ -18,13 +18,14 @@ REQUIREMENTS = [
 ]
 
 KEYWORDS = [
-    'deployment',
-    'verification',
+    'ec2',
+    'aws',
+    'instance',
 ]
 
 setup(
     name='ec2-handler',
-    version='0.1.3',
+    version='0.0.1',
     description='ec2-handler',
     long_description=README,
     author='Richard Pappalardo',
@@ -35,11 +36,10 @@ setup(
     keywords=KEYWORDS,
     packages=find_packages(),
     classifiers=[
-        'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.3',
     ],
     entry_points={
-        'console_scripts': ['verify = verify.demo_handler:main']
+        'console_scripts': ['ec2 = ec2_handler.ec2_handler:main']
     },
 )
