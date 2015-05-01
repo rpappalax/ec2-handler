@@ -14,4 +14,3 @@ sdist/
 .venv/
 .coverage
 .tox/
-docs/_build/

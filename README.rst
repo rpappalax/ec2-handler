@@ -1,27 +1,20 @@
-deploy-verifier
+ec2-handler
 =======================
 
 Description
 -----------
 
-Python scripts to verify Mozilla Cloud Services deployments.
+Python Boto scripts for handling Amazon EC2 instances 
 
 Note: still under development. 
 
 |travis| |pypi|
 
-.. |travis| image:: https://travis-ci.org/rpappalax/deploy-verifier.svg?branch=dev
-    :target: https://travis-ci.org/rpappalax/deploy-verifier
+.. |travis| image:: https://travis-ci.org/rpappalax/ec2-handler.svg?branch=dev
+    :target: https://travis-ci.org/rpappalax/ec2-handler
 
-.. |pypi| image:: https://badge.fury.io/py/deploy-verifier.svg
-    :target: http://badge.fury.io/py/deploy-verifier
-
-
-**Supported projects**
- - loop-client
- - loop-server
- - msisdn-gateway 
- - shavar 
+.. |pypi| image:: https://badge.fury.io/py/ec2-handler.svg
+    :target: http://badge.fury.io/py/ec2-handler
 
 
 Install
@@ -29,14 +22,14 @@ Install
 
 .. code:: bash
 
-    $ git clone https://github.com/rpappalax/deploy-verifier.git
-    $ cd deploy-verifier
+    $ git clone https://github.com/rpappalax/ec2-handler.git
+    $ cd ec2-handler
     $ python setup.py develop
     $ make build
 
 Setup
 -----
-deploy-verify uses the AWS boto library which requires that a config file:
+ec2-handler uses the AWS boto library which requires that a config file:
 ".boto" be in your home dir for authentication.  
 Be sure to secure your config file:
 

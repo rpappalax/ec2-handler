@@ -29,9 +29,3 @@ clean:
 	rm -rf build *egg* dist ./docs/_build .tox
 	find . -name '*.pyc' -exec rm -f {} +
 
-docs:
-	$(VENVDIR)/bin/sphinx-build -b html -d $(SPHINX_BUILDDIR)/doctrees docs $(SPHINX_BUILDDIR)/html
-	@echo
-	@echo "Build finished. The HTML pages are in $(SPHINX_BUILDDIR)/html/index.html"
-
-

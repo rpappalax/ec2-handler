@@ -23,13 +23,13 @@ KEYWORDS = [
 ]
 
 setup(
-    name='deploy-verify',
+    name='ec2-handler',
     version='0.1.3',
-    description='deploy-verify',
+    description='ec2-handler',
     long_description=README,
     author='Richard Pappalardo',
     author_email='rpappalax@gmail.com',
-    url='https://github.com/rpappalax/deploy-verify',
+    url='https://github.com/rpappalax/ec2-handler',
     license="MIT",
     install_requires=REQUIREMENTS,
     keywords=KEYWORDS,

@@ -1,10 +1,10 @@
-"""Module for to verify EC2 deployments 
+"""Module for to ec2 EC2 deployments 
 """
 import argparse
 import boto.ec2
 
 
-class Verify(object):
+class EC2Handler(object):
 
     def __init__(self):
 
@@ -28,10 +28,9 @@ class Verify(object):
             print region+':',vol.id
 
 
-
 def main():
     
-    verify = Verify()
+    ec2 = EC2Handler()
     regions = ['us-east-1','us-west-1','us-west-2','eu-west-1','sa-east-1',
                'ap-southeast-1','ap-southeast-2','ap-northeast-1']
     parser = argparse.ArgumentParser()
@@ -45,7 +44,7 @@ def main():
         'aws_access_key_id': args.access_key,
         'aws_secret_access_key': args.secret_key
         }
-    for region in regions: verify.get_ec2_instances(region, kwargs)
+    for region in regions: ec2.get_ec2_instances(region, kwargs)
 
 
 if  __name__ =='__main__':
