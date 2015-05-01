@@ -4,10 +4,11 @@ ec2-handler
 Description
 -----------
 
-Python Boto scripts for handling Amazon EC2 instances 
-For now this is a one-trick-pony as all it does is return
-the latest instance when given an instance Name as string and a region
+Python Boto scripts for handling Amazon EC2 instances.
 
+For now this is a one-trick-pony:
+when given an instance Name as string and a region,
+it will simply return the latest instance created with that Name
 
 |travis| |pypi|
 
