@@ -9,7 +9,7 @@ with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
 
 REQUIREMENTS = [
-    'boto',
+    'boto >= 2.29.0',
     'requests >= 2.6.0',
     'mock >= 1.0.1',
     'nose >= 1.3.4',

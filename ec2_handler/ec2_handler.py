@@ -31,17 +31,27 @@ class EC2Handler(object):
         reservations = ec2_conn.get_all_instances(filters=filters)
         for reservation in reservations:
             for instance in reservation.instances:
-                current_instance = '{}: {} - {}'.format(
-                    region, 
-                    instance.id,
-                    instance.tags['Name'],
-                    instance.launch_time
-                ) 
+                #current_instance = '{}: {} - {}'.format(
+                #    region, 
+                #    instance.id,
+                #    instance.tags['Name'],
+                #    instance.launch_time
+                #) 
+                #print current_instance
                 if instance.launch_time > launch_time_prev:
-                    instance_newest = current_instance
+                    instance_newest = instance 
                 launch_time_prev = instance.launch_time
         
         return instance_newest
+
+    def instance_report(self, region, instance):
+        return '{}: {} - {} - {}'.format(
+            region, 
+            instance.id,
+            instance.tags['Name'],
+            instance.public_dns_name,
+            instance.launch_time
+        ) 
 
 
 def main():
@@ -71,7 +81,8 @@ def main():
     }
 
     for region in regions:
-        print ec2.instance_newest(region, filters, kwargs)
+        instance = ec2.instance_newest(region, filters, kwargs)
+        print(ec2.instance_report(region, instance))
 
 if __name__ == '__main__':
 
